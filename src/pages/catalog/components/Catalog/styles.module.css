@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 0 50px 0;
+}
+
+.fetching {
+  padding: 300px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

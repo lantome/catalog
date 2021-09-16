@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
+import { Cart, Catalog } from './pages';
+import { Header } from './shared';
+import { setCatalogAC } from './store/catalog/actionCreators';
 
-function App() {
+const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const cartList = localStorage.getItem('cart');
+
+  if (!cartList) {
+    localStorage.setItem('cart', '[]');
+  }
+
+  dispatch(setCatalogAC());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <div className="container">
+        <Switch>
+          <Route exact path="/" component={Catalog} />
+          <Route exact path="/basket" component={Cart} />
+          <Redirect to="/" />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

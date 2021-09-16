@@ -1,0 +1,39 @@
+.header {
+  background-color: black;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+}
+.header__buttons {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__button {
+  font-size: 15px;
+  padding: 10px 15px;
+  border: none;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.header__button:hover {
+  background-color: rgb(161, 155, 155);
+}
+
+.header__button:active {
+  background-color: rgb(161, 155, 155);
+  color: white;
+}
